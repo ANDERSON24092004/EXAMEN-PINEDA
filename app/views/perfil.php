@@ -20,7 +20,7 @@
                 <!-- Seccion del propio perfil -->
                 <div class="card">
                     <div class="card-header">
-                        <img src="app/assets/img/default-profile.png" class="rounded-circle mb-3" alt="Foto de perfil">
+                        <img src="app/assets/img/default.png" class="rounded-circle mb-3" alt="Foto de perfil">
                     </div>
                     <div class="card-header text-center">
                         <h4 class="name"></h4>
