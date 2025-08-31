@@ -14,7 +14,6 @@
 <body class="body-bg">
     <div class="login-card">
 
-
         <div class="heading-section">
             <h1 class="main-heading">
                 Login de <br><span class="highlight-text">usuario</span>
@@ -23,13 +22,13 @@
         </div>
 
         <!-- Login Form -->
-        <form method="post" class="formualario login-form" action="">
+        <form method="post" class="formulario login-form" action="<?php echo URL_BASE ?>?url=seccion&type=perfil">
             <input type="hidden" name="accion" value="iniciarSesion">
             <!-- Email Input Group -->
             <div class="form-group">
                 <label for="email" class="form-label">Correo</label>
                 <div class="input-container">
-                    <input type="email" class="form-input" id="email" name="correo" placeholder="correo@ejemplo.com" required>
+                    <input type="email" class="form-input" name="correo" placeholder="correo@ejemplo.com" required>
                     <div class="input-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
@@ -39,26 +38,24 @@
             <div class="form-group">
                 <label for="password_user" class="form-label">Contraseña</label>
                 <div class="input-container">
-                    <input input type="password" class="form-input" id="password" name="contrasena" placeholder="Contraseña" required>
+                    <input input type="password" class="form-input" name="clave1" placeholder="Contraseña" required>
                     <div class="input-icon">
                         <i class="fas fa-lock"></i>
                     </div>
                 </div>
             </div>
-            <?php if (isset($errorMessage)) echo $errorMessage; ?>
-
             <button type="submit" class="submit-button">
                 Ingresar
             </button>
         </form>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app/assets/js/sweetalert2.all.min.js"></script>
     <script src="https://cdn.datatables.net/v/dt/dt-2.3.1/datatables.min.js"></script>
+    <script src="<?php echo URL_BASE ?>app/assets/js/ajax.js"></script>
     <script src="app/assets/js/datatable.js"></script>
-    <script src="app/assets/js/perfil.js"></script>
-    <script src="app/assets/js/ajax.js"></script>
 </body>
 
 </html>

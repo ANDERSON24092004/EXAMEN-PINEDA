@@ -14,46 +14,30 @@ if (
     $apellido = isset($_POST['apellido']) ? $_POST['apellido'] : "";
     $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : "";
     $correo = isset($_POST['correo']) ? $_POST['correo'] : "";
-    $contrasena = isset($_POST['contrasena']) ? $_POST['contrasena'] : "";
+    $contrasena1 = isset($_POST['clave1']) ? $_POST['clave1'] : "";
+    $contrasena2 = isset($_POST['clave2']) ? $_POST['clave2'] : "";
     $ciudad = isset($_POST['ciudad']) ? $_POST['ciudad'] : "";
     $rol = isset($_POST['rol']) ? $_POST['rol'] : "";
 
     switch ($accion) {
         case "listar":
-            $resultado = $objetoSeccion->Seleccionar_Usuarios();
+            $resultado = $objetoSeccion->Seleccionar_Usuarios('completo');
             ob_clean();
             echo json_encode($resultado);
             exit();
         case "seleccionarUnRegistro":
-            $resultado = $objetoSeccion->Seleccionar_Usuarios($cedula);
+            $resultado = $objetoSeccion->Seleccionar_Usuarios('unoSolo',$cedula);
             ob_clean();
             echo json_encode($resultado);
             exit();
         case "registrar":
-            $resultado = $objetoSeccion->Registrar_Usuarios(
-                $cedula,
-                $nombre,
-                $apellido,
-                $telefono,
-                $correo,
-                $contrasena,
-                $ciudad,
-                $rol
+            $resultado = $objetoSeccion->Registrar_Usuarios($cedula,$nombre,$apellido,$telefono,$correo,$contrasena1,$contrasena2,$ciudad,$rol
             );
             ob_clean();
             echo json_encode($resultado);
             exit();
         case "actualizar":
-            $resultado = $objetoSeccion->Actualizar_Usuarios(
-                $cedula,
-                $nombre,
-                $apellido,
-                $telefono,
-                $correo,
-                $contrasena,
-                $ciudad,
-                $rol
-            );
+            $resultado = $objetoSeccion->Actualizar_Usuarios($cedula,$nombre,$apellido,$telefono,$correo,$contrasena1,$contrasena2,$ciudad,$rol);
             ob_clean();
             echo json_encode($resultado);
             exit();
@@ -63,7 +47,12 @@ if (
             echo json_encode($resultado);
             exit();
         case "iniciarSesion":
-            $resultado = $objetoSeccion->Iniciar_Secion($correo, $contrasena);
+            $resultado = $objetoSeccion->Iniciar_Secion($correo, $contrasena1);
+            ob_clean();
+            echo json_encode($resultado);
+            exit();
+        case "cerrarSesion":
+            $resultado = $objetoSeccion->Cerrar_Sesion();
             ob_clean();
             echo json_encode($resultado);
             exit();
