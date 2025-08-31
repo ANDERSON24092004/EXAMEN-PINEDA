@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let rutaAbsoluta='http://localhost/EXAMEN%20PINEDA/';
+
 
     // Accesibilidad: mover foco al botón 'Nuevo' al cerrar el modal
     $('#exampleModal').on('hidden.bs.modal', function () {
@@ -76,13 +76,13 @@ $(document).ready(function () {
 
     // Abrir modal de registro
     $(document).on('click', '#btn-registrar', function () {
-    $('#exampleModalLabel').text('Registrar usuario');
-    $('#formularioP')[0].reset();
-    $('#texto-guardar').text('Registrar');
-    $('#cedula').prop('readonly', false);
-    $('#update').val(0);
-    accion = 0;
-    $('#exampleModal').modal('show');
+        $('#exampleModalLabel').text('Registrar usuario');
+        $('#formularioP')[0].reset();
+        $('#texto-guardar').text('Registrar');
+        $('#cedula').prop('readonly', false);
+        $('#update').val(0);
+        accion = 0;
+        $('#exampleModal').modal('show');
     });
 
     // Abrir modal de modificar usuario

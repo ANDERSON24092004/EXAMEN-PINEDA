@@ -1,8 +1,9 @@
-//#region [CONSTANTES O VARIABLES GLOABALES] COMIENZO 
+//#region [CONSTANTES O VARIABLES GLOBALES] COMIENZO 
 let esteFormulario;
 let instanciaTabla;
+let rutaAbsoluta='http://localhost/EXAMEN%20PINEDA/';
 
-//#endregion [CONSTANTES O VARIABLES GLOABALES] FIN
+//#endregion [CONSTANTES O VARIABLES GLOBALES] FIN
 
 async function peticionesAjax(instrucciones){
 

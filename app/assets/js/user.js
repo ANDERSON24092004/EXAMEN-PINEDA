@@ -123,7 +123,6 @@ $(document).ready(async function () {
         $('#cedula').prop('readonly', false);
         accion = 0;
         $('#exampleModal').modal('show');
-        
 
     });
     var accion = 0;

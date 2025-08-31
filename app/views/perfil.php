@@ -24,16 +24,16 @@
                             <small class="Email"></small>
                         </div>
                         <div class="card-body">
-                            <p><strong>Teléfono:</strong></p>
-                            <p><strong>Ciudad:</strong></p>
-                            <p><strong>Rol:</strong></p>
+                            <p><strong>Teléfono:</strong> <?php echo $_SESSION['telefono'] ?></p>
+                            <p><strong>Ciudad:</strong> <?php echo $_SESSION['ciudad'] ?></p>
+                            <p><strong>Rol:</strong> <?php echo $_SESSION['rol'] ?></p>
                         </div>
                         <div class="btns">
                             <div class="d-flex justify-content-center gap-2 mb-2">
-                                <button type="button" class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modalEditarPerfil">
+                                <button value="<?php echo $_SESSION['cedula'] ?>" type="button" class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modalEditarPerfil">
                                     <i class="fas fa-user-edit me-2"></i> Editar Perfil
                                 </button>
-                                <button type="button" class="btn btn-secondary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modalActualizarClave">
+                                <button value="<?php echo $_SESSION['cedula'] ?>" type="button" class="btn btn-secondary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modalActualizarClave">
                                     <i class="fas fa-key me-2"></i> Actualizar Contraseña
                                 </button>
                             </div>
@@ -169,23 +169,23 @@
                                     <div class="modal-body">
                                         <div class="form-group mb-2">
                                             <label for="editarNombre">Nombre:</label>
-                                            <input type="text" class="form-control" id="editarNombre" name="nombre" value="<?php echo htmlspecialchars($info[0]['nombre']); ?>" required>
+                                            <input type="text" class="form-control" id="editarNombre" name="nombre" required>
                                         </div>
                                         <div class="form-group mb-2">
                                             <label for="editarApellido">Apellido:</label>
-                                            <input type="text" class="form-control" id="editarApellido" name="apellido" value="<?php echo htmlspecialchars($info[0]['apellido']); ?>" required>
+                                            <input type="text" class="form-control" id="editarApellido" name="apellido" required>
                                         </div>
                                         <div class="form-group mb-2">
                                             <label for="editarCorreo">Correo:</label>
-                                            <input type="email" class="form-control" id="editarCorreo" name="correo" value="<?php echo htmlspecialchars($info[0]['correo']); ?>" required>
+                                            <input type="email" class="form-control" id="editarCorreo" name="correo" required>
                                         </div>
                                         <div class="form-group mb-2">
                                             <label for="editarTelefono">Teléfono:</label>
-                                            <input type="text" class="form-control" id="editarTelefono" name="telefono" value="<?php echo htmlspecialchars($info[0]['telefono']); ?>" required>
+                                            <input type="text" class="form-control" id="editarTelefono" name="telefono" required>
                                         </div>
                                         <div class="form-group mb-2">
                                             <label for="editarCiudad">Ciudad:</label>
-                                            <input type="text" class="form-control" id="editarCiudad" name="ciudad" value="<?php echo htmlspecialchars($info[0]['ciudad']); ?>" required>
+                                            <input type="text" class="form-control" id="editarCiudad" name="ciudad" required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -207,9 +207,10 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.datatables.net/v/dt/dt-2.3.1/datatables.min.js"></script>
+        <script src="app/assets/js/ajax.js"></script>
         <script src="app/assets/js/datatable.js"></script>
         <script src="app/assets/js/perfil.js"></script>
-        <script src="app/assets/js/ajax.js"></script>
+        
 
 </body>
 
