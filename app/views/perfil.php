@@ -30,7 +30,7 @@
                         </div>
                         <div class="btns">
                             <div class="d-flex justify-content-center gap-2 mb-2">
-                                <button value="<?php echo $_SESSION['cedula'] ?>" type="button" class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modalEditarPerfil">
+                                <button value="<?php echo $_SESSION['cedula'] ?>" type="button" class="btn-act btn btn-primary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modalEditarPerfil">
                                     <i class="fas fa-user-edit me-2"></i> Editar Perfil
                                 </button>
                                 <button value="<?php echo $_SESSION['cedula'] ?>" type="button" class="btn btn-secondary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modalActualizarClave">

@@ -93,10 +93,16 @@ async function enviarFormulario() {
         return alertas_ajax(respuesta);
     }
 }
-
+async function plasmarDatosFomrAct() {
+    console.log(this.value);
+}
 //#region [DELEGACIÓN DE LOS EVENTOS] COMIENZO
 $(document).on('submit', '.formualario', function (e) {
     e.preventDefault();
     enviarFormulario.call(this)
+})
+$(document).on('submit', '.btn-act', function (e) {
+    e.preventDefault();
+    plasmarDatosFomrAct.call(this)
 })
 //#endregion [DELEGACIÓN DE LOS EVENTOS] COMIENZO
