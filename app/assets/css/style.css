@@ -1,0 +1,191 @@
+/* Estilos generales del cuerpo y tipografía */
+body {
+    background-color: #f0f2f5; /* Fondo gris claro para una apariencia limpia */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Pila de fuentes moderna y segura */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    min-height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la ventana del navegador */
+    margin: 0;
+    line-height: 1.6; /* Mejora la legibilidad del texto */
+    color: #333;
+}
+
+/* Estilos del contenedor principal de la tarjeta */
+.container {
+    width: 90%;
+    max-width: 600px; /* Ancho máximo para el contenedor principal */
+    padding: 20px;
+}
+
+/* Estilos de la tarjeta individual */
+.card {
+    border-radius: 16px; /* Bordes redondeados */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
+    background-color: #ffffff;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suave transición para los efectos de hover */
+    border: none;
+}
+
+/* Estilos del encabezado de la tarjeta */
+.card-header {
+    background-color: transparent;
+    border-bottom: none;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.card-header img {
+    width: 120px;
+    height: 120px;
+    border: 4px solid #e0e0e0; /* Borde alrededor de la imagen de perfil */
+    padding: 3px;
+    border-radius: 50%; /* Crea una forma perfectamente circular */
+    object-fit: cover;
+    transition: border-color 0.3s ease;
+}
+
+.card-header img:hover {
+    border-color: #007bff; /* Cambia el color del borde al pasar el cursor */
+}
+
+/* Estilos para el texto y la información */
+h4 {
+    color: #1a202c;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+small {
+    color: #718096;
+    display: block; /* Asegura que el correo electrónico esté en su propia línea */
+}
+
+.card-body {
+    padding: 0;
+}
+
+.card-body p {
+    margin-bottom: 1rem;
+    color: #4a5568;
+    font-size: 1rem;
+}
+
+.card-body strong {
+    color: #2d3748;
+}
+
+/* Estilos para el contenedor de botones */
+.btns {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan a una nueva línea si no caben */
+}
+
+.btn {
+    border-radius: 9999px; /* Bordes completamente redondeados (forma de píldora) */
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor del botón de salida de ancho completo */
+.btn-exit {
+    margin-top: 1.5rem;
+}
+
+/* Clases de utilidad */
+.w-100 {
+    width: 100%;
+}
+
+/* Diseño responsive para diferentes tamaños de pantalla */
+@media (max-width: 768px) {
+    
+    .container {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+    .btns {
+        flex-direction: column; /* Apila los botones verticalmente en pantallas pequeñas */
+        gap: 0.75rem;
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-header img {
+        width: 100px;
+        height: 100px;
+    }
+}       
+
+
+
+
+
+
+
+@media(min-width:768px){
+    .contenedor{
+        display: grid;
+        grid-template-columns: repeat(2, 1);
+        gap: 15px;
+    }
+}

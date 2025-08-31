@@ -1,0 +1,12 @@
+{
+    "name": "app/examen-seciones",
+    "description": "zz",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "minimum-stability": "beta",
+    "require": {}
+}
