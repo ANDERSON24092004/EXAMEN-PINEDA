@@ -362,10 +362,12 @@ class seccionModel extends conexion
             nombre = :nombre, apellido = :apellido, telefono = :telefono, 
             correo = :correo, ciudad = :ciudad, rol = :rol ";
 
-            if($this->contrasena!=''){
-                $sql.=", clave = :contrasena";
+            if($this->contrasena != ''){
+                $sql.=", clave = :contrasena ";
             }
             $sql.="WHERE cedula = :cedula";
+
+            return $sql;
 
             $consulta = $this->conex->prepare($sql);
             $consulta->bindParam(":cedula", $this->cedula);
