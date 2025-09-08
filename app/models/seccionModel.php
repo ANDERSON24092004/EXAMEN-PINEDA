@@ -367,8 +367,6 @@ class seccionModel extends conexion
             }
             $sql.="WHERE cedula = :cedula";
 
-            return $sql;
-
             $consulta = $this->conex->prepare($sql);
             $consulta->bindParam(":cedula", $this->cedula);
             $consulta->bindParam(":nombre", $this->nombre);
