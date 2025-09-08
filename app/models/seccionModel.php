@@ -24,7 +24,7 @@ class seccionModel extends conexion
         $this->conex = $this->getConnection();
     }
 
-    //METODOS PUBLICOS PARA LA ENCAPSULACIÓN
+    //MÉTODOS PÚBLICOS PARA LA ENCAPSULACIÓN
     public function Iniciar_Secion($correo, $contrasena)
     {
 
@@ -388,8 +388,8 @@ class seccionModel extends conexion
                 $alerta = [
                     "tipo" => "simple",
                     "titulo" => "Usuario no actualizado",
-                    "texto" => "El usuario no pudo ser actualizado",
-                    "icono" => "error",
+                    "texto" => "No se realizaron cambios al usuario",
+                    "icono" => "warning",
                 ];
                 return ($alerta);
                 exit();
