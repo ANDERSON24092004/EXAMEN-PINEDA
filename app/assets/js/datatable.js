@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     // DataTables config
     instanciaTabla = $('#userTable').DataTable({
         ajax: {
@@ -21,24 +22,24 @@ $(document).ready(function () {
                     
                     const btnEditar = `
                     <button 
-                    type="button" 
-                    value="${data.cedula}" 
-                    data-bs-toggle="modal" 
-                    data-bs-target="#modalEditarPerfil" 
-                    class="botonActualizar btn btn-primary btn-sm ms-2 btn-modificar" 
-                    title="Editar usuario">
-                    <i class="fas fa-edit me-1"></i>
-                    Editar
+                        type="button" 
+                        value="${data.cedula}" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#modalEditarPerfil" 
+                        class="botonActualizar btn btn-primary btn-sm ms-2 btn-modificar" 
+                        title="Editar usuario">
+                        <i class="fas fa-edit me-1"></i>
+                        Editar
                     </button>`;
 
                     const btnEliminar = `
                     <button 
-                    type="button" 
-                    value="${data.cedula}" 
-                    class="btn btn-danger btn-sm ms-2 btn-eliminar" 
-                    title="Eliminar usuario">
-                    <i class="fas fa-trash-alt me-1"></i> 
-                    Eliminar
+                        type="button" 
+                        value="${data.cedula}" 
+                        class="btn-eliminar btn btn-danger btn-sm ms-2 " 
+                        title="Eliminar usuario">
+                        <i class="fas fa-trash-alt me-1"></i> 
+                        Eliminar
                     </button>`;
                     return `<div class="d-flex">${btnEditar} ${btnEliminar}</div>`;
                 }

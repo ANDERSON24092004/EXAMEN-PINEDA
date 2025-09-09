@@ -12,7 +12,7 @@ async function peticionesAjax(instrucciones) {
     for (let [clave, valor] of Object.entries(instrucciones['datosPe'])) {
         formData.append(clave, valor);
     }
-    let respuesta = await fetch(`${rutaAbsoluta}` + instrucciones['modulo'], {
+    let respuesta = await fetch(`${rutaAbsoluta}`+instrucciones['modulo'], {
         method: 'POST',
         headers: headers,
         mode: 'cors',
@@ -24,12 +24,11 @@ async function peticionesAjax(instrucciones) {
     }
 
     return respuesta;
-
 }
 async function enviarFormulario() {
 
     esteFormulario = $(this);
-    console.log(esteFormulario)
+
     let resultado = await Swal.fire({
         title: '¿Estás seguro?',
         text: "Quieres realizar la acción solicitada",
@@ -47,6 +46,7 @@ async function enviarFormulario() {
         let data = new FormData(this);
 
         let encabezados = new Headers();
+
         let config = {
             method: 'POST',
             headers: encabezados,
@@ -54,17 +54,20 @@ async function enviarFormulario() {
             cache: 'no-cache',
             body: data
         };
+
         let respuesta = await (await fetch(action, config)).json()
 
         if (instanciaTabla) {
             instanciaTabla.ajax.reload(null, false);
         }
+
         console.log(respuesta);
 
         return alertas_ajax(respuesta);
     }
 }
 async function alertas_ajax(alerta) {
+
     switch (alerta.tipo) {
         case "simple":
             Swal.fire({
@@ -91,17 +94,21 @@ async function alertas_ajax(alerta) {
             window.location.href = alerta.url
             break;
         default:
+            console.log('Alerta no reconocida');
             break;
     }
+
 }
 async function plasmarDatosFomrAct() {
+
     let datosPe = {
-        'modulo': '?url=seccion',
-        'datosPe': {
-            'accion': 'seleccionarUnRegistro',
-            'cedula': this.value
+        'modulo' : '?url=seccion',
+        'datosPe' : {
+            'accion' : 'seleccionarUnRegistro',
+            'cedula' : this.value
         }
     }
+
     let respuesta = await peticionesAjax(datosPe);
 
     let idFormObjetivo = $(this).attr('data-bs-target');
@@ -117,7 +124,7 @@ async function plasmarDatosFomrAct() {
 }
 async function eliminarRegistros() {
     const cedula = this.value;
-    let resultado= await Swal.fire({
+    let resultado = await Swal.fire({
         title: '¿Está seguro?',
         text: "¡No podrás revertir esto!",
         icon: 'warning',
@@ -168,8 +175,8 @@ async function cerrarSesion() {
 //#region [DELEGACIÓN DE LOS EVENTOS] COMIENZO
 $(document).on('submit', '.formulario', function (e) {
     e.preventDefault();
-    enviarFormulario.call(this)
-})
+    enviarFormulario.call(this);
+});
 $(document).on('click', '.botonActualizar', function (e) {
     e.preventDefault();
     plasmarDatosFomrAct.call(this)

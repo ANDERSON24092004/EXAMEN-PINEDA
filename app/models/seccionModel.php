@@ -23,7 +23,6 @@ class seccionModel extends conexion
         parent::__construct();
         $this->conex = $this->getConnection();
     }
-
     //MÉTODOS PÚBLICOS PARA LA ENCAPSULACIÓN
     public function Iniciar_Secion($correo, $contrasena)
     {

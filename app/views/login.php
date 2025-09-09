@@ -23,7 +23,9 @@
 
         <!-- Login Form -->
         <form method="post" class="formulario login-form" action="<?php echo URL_BASE ?>?url=seccion&type=perfil">
+            
             <input type="hidden" name="accion" value="iniciarSesion">
+            
             <!-- Email Input Group -->
             <div class="form-group">
                 <label for="email" class="form-label">Correo</label>

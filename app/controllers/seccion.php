@@ -25,8 +25,8 @@ if (
             ob_clean();
             echo json_encode($resultado);
             exit();
-        case "seleccionarUnRegistro":
-            $resultado = $objetoSeccion->Seleccionar_Usuarios('unoSolo',$cedula);
+        case "seleccionarUnRegistro" :
+            $resultado = $objetoSeccion->Seleccionar_Usuarios('unoSolo', $cedula);
             ob_clean();
             echo json_encode($resultado);
             exit();

@@ -163,6 +163,7 @@
                             </div>
                             <form class="formulario" method="POST" action="">
                                 <div class="modal-body">
+                                    
                                     <input type="hidden" name="accion" value="actualizar">
                                     <input type="hidden" name="cedula">
 
