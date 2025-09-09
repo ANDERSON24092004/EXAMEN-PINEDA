@@ -20,15 +20,17 @@ namespace app\controllers;
                 die("<script>location='?url=seccion&type=login'</script>");
             }
         }
-
         private function getURL() {            
             if(file_exists($this->dir . $this->url . $this->controller)) {
                 require_once($this->dir . $this->url . $this->controller);
             } else {
-                echo "<script>location='?url=seccion&type=login'</script>";
+                if(isset($_SESSION['cedula'])){
+                    echo "<script>location='?url=seccion&type=perfil'</script>";
+                }else{
+                    echo "<script>location='?url=seccion&type=login'</script>";
+                }
             }
         }
-
     }
 
 ?>

@@ -171,6 +171,18 @@ async function cerrarSesion() {
         return alertas_ajax(respuesta)
     }
 }
+(function modificarFoms(){
+    let rol= $('.rol_inicio_sesion')
+    if(rol){
+        if(rol.val() != 1){
+            let grupoRol= $('[name="rol"]').closest('.form-group');
+            let grupoCiudad= $('[name="ciudad"]').closest('.form-group');
+            grupoRol.hide();
+            grupoCiudad.removeClass('col-6').addClass('col-12')
+        }
+    }
+})()
+
 
 //#region [DELEGACIÓN DE LOS EVENTOS] COMIENZO
 $(document).on('submit', '.formulario', function (e) {

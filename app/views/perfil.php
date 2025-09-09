@@ -28,6 +28,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
+                            <input type="hidden" class='rol_inicio_sesion' value="<?php echo $_SESSION['rol'] ?>">
                             <?php if($_SESSION['rol']==1){$rol='Administrador';}else{$rol='Usuario';}?>
                             <div class="col-3"><p><strong>Cédula:</strong> <?php echo $_SESSION['cedula'] ?></p></div>
                             <div class="col-3"><p><strong>Nombre:</strong> <?php echo $_SESSION['nombre'] ?></p></div>
@@ -55,12 +56,12 @@
                 <!-- Tabla de registros -->
                 <div class="card">
                     <?php if($_SESSION['rol']==1){ ?>
+                    
                     <div class="mb-3 text-start">
                         <button id="btn-registrar" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="fas fa-user-plus me-2"></i> Nuevo Usuario
                         </button>
                     </div>
-                    <?php }?>
                     <table id="userTable">
                         <thead>
                             <tr style="margin-top: 10%;">
@@ -77,6 +78,8 @@
                         <tbody>
                         </tbody>
                     </table>
+                    
+                    <?php }?>
                 </div>
 
                 <!-- Modal Registrar Usuarios -->
@@ -88,7 +91,6 @@
                             </div>
                             <form method="POST" class="formulario" action="">
                                 <div class="modal-body">
-                                    
                                         <input type="hidden" name="accion" value="registrar">
                                         <div class="row g-3">
                                             <div class="form-group col-12">
@@ -108,19 +110,19 @@
                                                 <input type="text" class="form-control" name="telefono" required>
                                             </div>
                                             <div class="form-group col-6">
-                                                <label for="ciudad">Ciudad:</label>
-                                                <input type="text" class="form-control" name="ciudad" required>
+                                                <label for="estado">Estado:</label>
+                                                <select class="form-control" name="estado" required>
+                                                    <option value="1">Activo</option>
+                                                    <option value="0">Inactivo</option>
+                                                </select>
                                             </div>
                                             <div class="form-group col-12">
                                                 <label for="numero">Correo:</label>
                                                 <input type="text" class="form-control" name="correo" required>
                                             </div>
                                             <div class="form-group col-6">
-                                                <label for="estado">Estado:</label>
-                                                <select class="form-control" name="estado" required>
-                                                    <option value="1">Activo</option>
-                                                    <option value="0">Inactivo</option>
-                                                </select>
+                                                <label for="ciudad">Ciudad:</label>
+                                                <input type="text" class="form-control" name="ciudad" required>
                                             </div>
                                             <div class="form-group col-6">
                                                 <label for="rol">Rol:</label>

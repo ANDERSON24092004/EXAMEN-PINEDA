@@ -60,14 +60,16 @@ if (
             echo json_encode(["error" => "Acción no reconocida"]);
             exit();
     }
-} elseif ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["type"])) {
+} elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
 
-    if ($_GET['type'] == 'login') {
-        require_once "app/views/login.php";
-    } elseif ($_GET['type'] == 'perfil') {
+    if (isset($_GET["type"]) && $_GET['type'] == 'perfil') {
         require_once "app/views/perfil.php";
     } else {
-        require_once "app/views/login.php";
+        if(isset($_SESSION['cedula'])){
+            require_once "app/views/perfil.php";
+        }else{
+            require_once "app/views/login.php";
+        }
     }
 } else {
     echo "Error: Tipo de vista no válida.";
