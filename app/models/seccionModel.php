@@ -19,12 +19,12 @@ class seccionModel extends conexion
 
     public function __construct()
     {
-
         parent::__construct();
         $this->conex = $this->getConnection();
     }
+
     //MÉTODOS PÚBLICOS PARA LA ENCAPSULACIÓN
-    public function Iniciar_Secion($correo, $contrasena)
+    public function Iniciar_Seccion($correo, $contrasena)
     {
 
         $FI = false;
@@ -44,7 +44,7 @@ class seccionModel extends conexion
                 "texto" => "El formato introducido en el campo de " . $campo . " no es válido, verifique e intente de nuevo",
                 "icono" => "error",
             ];
-            return ($alerta);
+            return $alerta;
             exit();
         } else {
             $this->correo = $correo;
@@ -55,7 +55,7 @@ class seccionModel extends conexion
     public function Cerrar_Sesion(){
         return $this->cerrarSesion();
     }
-    public function Seleccionar_Usuarios($tipo,$cedula = null)
+    public function Seleccionar_Usuarios($tipo, $cedula = null)
     {
 
         $FI = false; //abreviado de "Formato Invalido"
@@ -66,7 +66,6 @@ class seccionModel extends conexion
                 $FI = true;
             }
         }
-
         if ($FI == true) {
             $alerta = [
                 "tipo" => "simple",
@@ -77,7 +76,6 @@ class seccionModel extends conexion
             return ($alerta);
             exit();
         } else {
-
             $this->cedula = $cedula;
             return $this->seleccionarUsuarios($tipo);
         }
@@ -270,18 +268,19 @@ class seccionModel extends conexion
     private function seleccionarUsuarios($tipo)
     {
 
-        if($tipo=='eliminados'){
+        if($tipo == 'eliminados'){
             $consulta = $this->conex->prepare("SELECT * FROM `usuarios` WHERE `cedula`= :cedula AND estado = 0");
             $consulta->bindParam(':cedula', $this->cedula);
-        }elseif ($this->cedula != null) {
+        }elseif($this->cedula != null) {
             $consulta = $this->conex->prepare("SELECT * FROM `usuarios` WHERE `cedula`= :cedula AND estado != 0");
             $consulta->bindParam(':cedula', $this->cedula);
-        } else {
+        }else{
             $consulta = $this->conex->prepare("SELECT * FROM `usuarios` WHERE `cedula`!= :cedula AND estado != 0");
             $consulta->bindParam(':cedula', $_SESSION['cedula']);
         }
 
         $consulta->execute();
+
         if($consulta->rowCount()==0){
             $alerta = [
                 "tipo" => "simple",
@@ -302,8 +301,9 @@ class seccionModel extends conexion
     {
         try {
 
-            //Aqui diferenciamos si la cedula esta o no en la BD
+            //Aquí diferenciamos si la cedula esta o no en la BD
             $usuarioregistrado=$this->seleccionarUsuarios('eliminados', $this->cedula);
+            
             if(isset($usuarioregistrado['cedula'])){
                 $sql = "UPDATE usuarios SET 
                 cedula= :cedula, nombre = :nombre, apellido = :apellido,
@@ -466,7 +466,7 @@ class seccionModel extends conexion
                     "texto" => "El usuario no se encuentra registrado en la base de datos",
                     "icono" => "error",
                 ];
-                return ($alerta);
+                return $alerta;
                 exit();
             } else {
                 $usuario = $consulta->fetch(PDO::FETCH_ASSOC);
@@ -477,7 +477,7 @@ class seccionModel extends conexion
                 if (
                     $this->contrasena == $usuario["clave"] &&
                     $this->correo == $usuario['correo']
-                ) {
+                ){
                     /*Creamos las variables de sesión */
                     $_SESSION['cedula'] = $usuario['cedula'];
                     $_SESSION['nombre'] = $usuario['nombre'];
